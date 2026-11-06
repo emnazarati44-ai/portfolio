@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emna Zarati — Portfolio Data</title>
+  <meta name="description" content="Emna Zarati — étudiante en Licence Big Data &amp; Data Analytics : Python, SQL, Power BI, Hadoop, AWS. Recherche un stage PFE en data dès fin janvier 2027." />
+  <style>
+    :root {
+      --bg: #0a0e1a;
+      --surface: #111827;
+      --card: #1a2235;
+      --accent: #3b82f6;
+      --accent2: #8b5cf6;
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --border: #1e293b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(10, 14, 26, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(59,130,246,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(139,92,246,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; max-width: 700px; }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    #hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    #hero h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 0.75rem 1.75rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      border: none;
+    }
+
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 2rem; }
+
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .section-line {
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 2px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── À PROPOS ── */
+    #about { background: var(--surface); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-avatar {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      margin: 0 auto;
+      box-shadow: 0 0 60px rgba(59,130,246,0.3);
+    }
+
+    .about-text p { color: var(--muted); margin-bottom: 1rem; font-size: 1.05rem; }
+
+    .about-info { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .info-icon { color: var(--accent); font-size: 1.1rem; }
+
+    /* ── COMPÉTENCES ── */
+    #skills { background: var(--bg); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem 1.25rem;
+      text-align: center;
+      transition: all 0.3s;
+      cursor: default;
+    }
+
+    .skill-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-6px);
+      box-shadow: 0 8px 30px rgba(59,130,246,0.15);
+    }
+
+    .skill-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+
+    .skill-name { font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem; }
+
+    .skill-bar-wrap {
+      width: 100%;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 0.75rem;
+    }
+
+    .skill-bar {
+      height: 100%;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      width: 0;
+      transition: width 1s ease;
+    }
+
+    .skill-level { font-size: 0.75rem; color: var(--muted); margin-top: 0.4rem; }
+
+    /* ── PROJETS ── */
+    #projects { background: var(--surface); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(59,130,246,0.15);
+    }
+
+    .project-header {
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-body { padding: 1.5rem; }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(59,130,246,0.15);
+      color: var(--accent);
+      border: 1px solid rgba(59,130,246,0.3);
+    }
+
+    .project-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+
+    .project-desc { font-size: 0.9rem; color: var(--muted); }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: gap 0.2s;
+    }
+
+    .project-link:hover { gap: 0.7rem; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--bg); }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info p { color: var(--muted); margin-bottom: 2rem; }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-detail span { display: block; }
+    .contact-detail .label { font-size: 0.75rem; color: var(--muted); }
+    .contact-detail .value { font-size: 0.95rem; font-weight: 500; }
+    .contact-detail a { color: var(--text); text-decoration: none; }
+    .contact-detail a:hover { color: var(--accent); }
+
+    form { display: flex; flex-direction: column; gap: 1rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    label { font-size: 0.85rem; color: var(--muted); }
+
+    input, textarea {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    textarea { min-height: 130px; }
+
+    #form-status {
+      font-size: 0.85rem;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      display: none;
+    }
+
+    #form-status.success {
+      display: block;
+      background: rgba(34,197,94,0.1);
+      color: #4ade80;
+      border: 1px solid rgba(34,197,94,0.3);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      .about-grid,
+      .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; }
+      .nav-links { gap: 1rem; }
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    /* ── LISTES DE COMPÉTENCES ── */
+    .skill-list { list-style: none; margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; }
+    .skill-list li { font-size: 0.78rem; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(139,92,246,0.12); border: 1px solid rgba(139,92,246,0.3); color: #c4b5fd; }
+
+    /* ── EXPÉRIENCE ── */
+    #experience { background: var(--bg); }
+    .xp-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; }
+    .xp-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.25rem; }
+    .xp-title { font-size: 1.15rem; font-weight: 700; }
+    .xp-date { color: var(--accent); font-size: 0.9rem; font-weight: 600; }
+    .xp-company { color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem; }
+    .xp-card ul { padding-left: 1.2rem; color: var(--muted); }
+    .xp-card li { margin-bottom: 0.4rem; }
+    .xp-card li strong { color: var(--text); font-weight: 600; }
+    @media (max-width: 680px) { .nav-links { gap: 0.8rem; font-size: 0.8rem; } }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">EZ.</div>
+  <ul class="nav-links">
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#experience">Expérience</a></li>
+    <li><a href="#skills">Compétences</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-content fade-in">
+    <div class="hero-badge">📊 Data Analysis · Big Data · Business Intelligence</div>
+    <h1>Emna <span>Zarati</span></h1>
+    <p class="hero-subtitle">Étudiante en dernière année de Licence Big Data &amp; Data Analytics<br>Je recherche un stage de fin d’études en data dès fin janvier 2027</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+      <a href="CV_Emna_Zarati.pdf" target="_blank" rel="noopener" class="btn btn-outline">CV (PDF)</a>
+      <a href="CV_Emna_Zarati_EN.pdf" target="_blank" rel="noopener" class="btn btn-outline">CV (EN)</a>
+      <a href="https://www.linkedin.com/in/emna-zarati-30955937b" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
+      <a href="https://github.com/emnazarati44-ai" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── À PROPOS ── -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="fade-in">
+        <div class="about-avatar">👩‍💻</div>
+      </div>
+      <div class="about-text fade-in">
+        <p class="section-label">À propos</p>
+        <h2 class="section-title">Bonjour, je suis Emna</h2>
+        <div class="section-line"></div>
+        <p>Étudiante en dernière année de Licence Big Data &amp; Data Analytics à TED University, je m’intéresse à l’analyse de données, à la business intelligence, au data engineering et à l’intelligence artificielle.</p>
+        <p>J’ai travaillé sur des projets concrets : pipeline Hadoop MapReduce sur plus d’un million de transactions, tableaux de bord Power BI, applications web et déploiement sur AWS. Je prépare la certification Microsoft PL-300 (Power BI).</p>
+        <div class="about-info">
+          <div class="info-item"><span class="info-icon">🎓</span> TED University — Licence Big Data &amp; Data Analytics (dernière année)</div>
+          <div class="info-item"><span class="info-icon">📍</span> Tunis — mobile en Tunisie, en France et en Europe</div>
+          <div class="info-item"><span class="info-icon">🇪🇺</span> Citoyenne européenne (nationalité suédoise)</div>
+          <div class="info-item"><span class="info-icon">🎯</span> Stage de fin d’études en data dès fin janvier 2027</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPÉRIENCE ── -->
+<section id="experience">
+  <div class="container">
+    <p class="section-label fade-in">Parcours</p>
+    <h2 class="section-title fade-in">Expérience</h2>
+    <div class="section-line fade-in"></div>
+    <div class="xp-card fade-in" style="margin-bottom:1.2rem;">
+      <div class="xp-head">
+        <div class="xp-title">Responsable adjointe</div>
+        <div class="xp-date">Sept. 2025 – Avr. 2026</div>
+      </div>
+      <div class="xp-company">Parad’Ice Plaza</div>
+      <ul>
+        <li><strong>Données de stock</strong> : suivi et analyse de plus de 50 références produits, détection des écarts, réduction des pertes</li>
+        <li><strong>Coordination</strong> d’une équipe de 7 personnes et améliorations de processus fondées sur les données</li>
+      </ul>
+    </div>
+    <div class="xp-card fade-in" style="margin-bottom:1.2rem;">
+      <div class="xp-head">
+        <div class="xp-title">Social Media Manager</div>
+        <div class="xp-date">Sept. 2025</div>
+      </div>
+      <div class="xp-company">Frames Aura — à distance (Royaume-Uni &amp; Allemagne)</div>
+      <ul>
+        <li><strong>Analyse d’audience</strong> : indicateurs d’engagement pour optimiser les contenus sur deux marchés</li>
+      </ul>
+    </div>
+    <div class="xp-card fade-in" style="margin-bottom:1.2rem;">
+      <div class="xp-head">
+        <div class="xp-title">Barista</div>
+        <div class="xp-date">Avr. – Août 2025</div>
+      </div>
+      <div class="xp-company">Ben Rahim Coffee Shop</div>
+      <ul>
+        <li><strong>Service client</strong> auprès d’une clientèle internationale dans un environnement exigeant</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPÉTENCES ── -->
+<section id="skills" style="background: var(--surface);">
+  <div class="container">
+    <p class="section-label fade-in">Boîte à outils</p>
+    <h2 class="section-title fade-in">Compétences</h2>
+    <div class="section-line fade-in"></div>
+    <div class="skills-grid">
+      <div class="skill-card fade-in">
+        <div class="skill-icon">📊</div>
+        <div class="skill-name">Data &amp; BI</div>
+        <ul class="skill-list"><li>Python</li><li>SQL</li><li>Power BI</li><li>DAX</li><li>Data mining</li><li>Statistiques</li></ul>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">🐘</div>
+        <div class="skill-name">Big Data</div>
+        <ul class="skill-list"><li>Hadoop HDFS</li><li>MapReduce</li><li>Hadoop Streaming</li></ul>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">☕</div>
+        <div class="skill-name">Programmation</div>
+        <ul class="skill-list"><li>Java</li><li>PHP</li><li>TypeScript</li><li>React</li></ul>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">🗄️</div>
+        <div class="skill-name">Bases de données</div>
+        <ul class="skill-list"><li>MySQL</li><li>PostgreSQL</li><li>SQLite</li></ul>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">☁️</div>
+        <div class="skill-name">Cloud</div>
+        <ul class="skill-list"><li>AWS EC2</li><li>Ubuntu</li><li>Nginx</li><li>VMware</li></ul>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">🛠️</div>
+        <div class="skill-name">Outils</div>
+        <ul class="skill-list"><li>Git / GitHub</li><li>Jupyter</li><li>VS Code</li><li>Packet Tracer</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJETS ── -->
+<section id="projects">
+  <div class="container">
+    <p class="section-label fade-in">Réalisations</p>
+    <h2 class="section-title fade-in">Projets</h2>
+    <div class="section-line fade-in"></div>
+    <div class="projects-grid">
+
+      <div class="project-card fade-in">
+        <div class="project-header" style="background: linear-gradient(135deg, #1a2e4a, #0d1f35);">🐘</div>
+        <div class="project-body">
+          <div class="project-tags"><span class="tag">Hadoop</span><span class="tag">MapReduce</span><span class="tag">Python</span></div>
+          <div class="project-title">Analyse e-commerce Big Data</div>
+          <div class="project-desc">5 jobs MapReduce sur 1 050 000 transactions stockées dans HDFS : top produits, clients actifs, chiffre d’affaires par catégorie, tendances mensuelles, produits achetés ensemble.</div>
+          <a href="https://github.com/emnazarati44-ai/hadoop-ecommerce-analytics" target="_blank" rel="noopener" class="project-link">Voir sur GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-header" style="background: linear-gradient(135deg, #3a2f0d, #1f1a08);">📈</div>
+        <div class="project-body">
+          <div class="project-tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Data Viz</span></div>
+          <div class="project-title">Tableaux de bord Power BI</div>
+          <div class="project-desc">Moteur de recherche interactif sur 18 000 sets LEGO et analyse de 14 800 salaires de la data (postes, expérience, télétravail, cartes).</div>
+          <a href="https://github.com/emnazarati44-ai/powerbi-dashboards" target="_blank" rel="noopener" class="project-link">Voir sur GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-header" style="background: linear-gradient(135deg, #1f1a3a, #110d24);">🎓</div>
+        <div class="project-body">
+          <div class="project-tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">AWS</span></div>
+          <div class="project-title">SmartEdu</div>
+          <div class="project-desc">Plateforme éducative multi-rôles (étudiants, professeurs, admins) : cours, inscriptions, forum, tableau de bord professeur, déployée sur AWS EC2.</div>
+          <a href="https://github.com/emnazarati44-ai/smartedu" target="_blank" rel="noopener" class="project-link">Voir sur GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-header" style="background: linear-gradient(135deg, #1a3029, #0d1f18);">☕</div>
+        <div class="project-body">
+          <div class="project-tags"><span class="tag">Java</span><span class="tag">JDBC</span><span class="tag">SQLite</span></div>
+          <div class="project-title">TechVest</div>
+          <div class="project-desc">Application Java orientée objet : analyse du marché de l’emploi IT et plateforme d’investissement dans des projets tech (pattern DAO, exceptions métier).</div>
+          <a href="https://github.com/emnazarati44-ai/techvest" target="_blank" rel="noopener" class="project-link">Voir sur GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-header" style="background: linear-gradient(135deg, #1e3a5f, #0a1628);">🗂️</div>
+        <div class="project-body">
+          <div class="project-tags"><span class="tag">PHP</span><span class="tag">PDO</span><span class="tag">MySQL</span><span class="tag">Bootstrap</span></div>
+          <div class="project-title">Gestion des étudiants</div>
+          <div class="project-desc">Application CRUD en PHP avec requêtes préparées, échappement des sorties et interface Bootstrap 5 repensée.</div>
+          <a href="https://github.com/emnazarati44-ai/php-student-management" target="_blank" rel="noopener" class="project-link">Voir sur GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-header" style="background: linear-gradient(135deg, #2a1a1a, #1a0d0d);">📚</div>
+        <div class="project-body">
+          <div class="project-tags"><span class="tag">PHP</span><span class="tag">POO</span><span class="tag">MVC</span></div>
+          <div class="project-title">EduArchive</div>
+          <div class="project-desc">Application web PHP orientée objet pour la gestion centralisée des documents de plusieurs universités (architecture MVC, CRUD).</div>
+          <span class="project-link" style="opacity:.7">Projet académique</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-header" style="background: linear-gradient(135deg, #14303a, #0a1a20);">☁️</div>
+        <div class="project-body">
+          <div class="project-tags"><span class="tag">AWS EC2</span><span class="tag">Ubuntu</span><span class="tag">Nginx</span></div>
+          <div class="project-title">AWS Cloud Portfolio</div>
+          <div class="project-desc">Instance EC2 Ubuntu configurée sur AWS pour héberger un site portfolio servi par Nginx.</div>
+          <span class="project-link" style="opacity:.7">Projet académique</span>
+        </div>
+      </div>
+
+    </div>
+    <p class="fade-in" style="color:var(--muted); margin-top:1.5rem; font-size:.9rem;">Les projets publiés sur GitHub ont été réalisés en binôme avec Luca Raciti.</p>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label fade-in">Échangeons</p>
+    <h2 class="section-title fade-in">Contact</h2>
+    <div class="section-line fade-in"></div>
+    <div class="contact-wrapper">
+      <div class="contact-info fade-in">
+        <p>Vous recrutez une stagiaire data pour 2027 ? Écrivez-moi, je serai ravie d’échanger.</p>
+        <div class="contact-item">
+          <div class="contact-icon-box">✉️</div>
+          <div class="contact-detail">
+            <span class="label">Email</span>
+            <span class="value"><a href="mailto:emnazarati44@gmail.com">emnazarati44@gmail.com</a></span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-box">💼</div>
+          <div class="contact-detail">
+            <span class="label">LinkedIn</span>
+            <span class="value"><a href="https://www.linkedin.com/in/emna-zarati-30955937b" target="_blank" rel="noopener">linkedin.com/in/emna-zarati-30955937b</a></span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-box">💻</div>
+          <div class="contact-detail">
+            <span class="label">GitHub</span>
+            <span class="value"><a href="https://github.com/emnazarati44-ai" target="_blank" rel="noopener">github.com/emnazarati44-ai</a></span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-box">💬</div>
+          <div class="contact-detail">
+            <span class="label">Langues</span>
+            <span class="value">Arabe · Français (C1) · Anglais (C1) · Espagnol (notions)</span>
+          </div>
+        </div>
+      </div>
+
+      <form id="contact-form" class="fade-in" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="name">Nom complet</label>
+          <input type="text" id="name" placeholder="Jean Dupont" required />
+        </div>
+        <div class="form-group">
+          <label for="subject">Sujet</label>
+          <input type="text" id="subject" placeholder="Stage data 2027" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Votre message…" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:0.5rem;">Écrire depuis ma messagerie ✉️</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>© 2026 <strong>Emna Zarati</strong> · <a href="mailto:emnazarati44@gmail.com">emnazarati44@gmail.com</a> · <a href="https://www.linkedin.com/in/emna-zarati-30955937b" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/emnazarati44-ai" target="_blank" rel="noopener">GitHub</a></p>
+</footer>
+
+<script>
+  // ── Apparition progressive des sections ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ── Lien actif dans la navigation ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+    });
+  });
+
+  // ── Formulaire : ouvre la messagerie du visiteur avec le message pré-rempli ──
+  function handleSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const subject = document.getElementById('subject').value || 'Contact depuis votre portfolio';
+    const message = document.getElementById('message').value;
+    const body = message + '\n\n— ' + name;
+    window.location.href = 'mailto:emnazarati44@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  }
+
+  // ── Hero visible au chargement ──
+  window.addEventListener('load', () => {
+    document.querySelector('#hero .fade-in').classList.add('visible');
+  });
+</script>
+</body>
+</html>
